@@ -9,3 +9,11 @@ def load_data():
 
 def split_data(X, y, test_size=0.2):
     return train_test_split(X, y, test_size=test_size, random_state=42)
+
+def get_config():
+    """Load model configuration"""
+    try:
+        from config import MODEL_CONFIG
+        return MODEL_CONFIG
+    except ImportError:
+        return {'test_size': 0.2, 'random_state': 42}
